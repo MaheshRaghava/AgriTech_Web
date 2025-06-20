@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../../firebase'; // Correct path based on your structure
+import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 
 const ForgotPassword = () => {
@@ -13,7 +13,7 @@ const ForgotPassword = () => {
     try {
       await sendPasswordResetEmail(auth, email);
       setMessage('Password reset email sent! Please check your inbox.');
-      setTimeout(() => navigate('/login'), 3000); // Redirect after 3 seconds
+      setTimeout(() => navigate('/login'), 3000);
     } catch (error: any) {
       setMessage(error.message);
     }
@@ -48,22 +48,22 @@ const styles = {
     boxShadow: '0 0 15px rgba(0, 0, 0, 0.2)',
     backgroundColor: '#f9f9f9',
     fontFamily: 'Arial, sans-serif',
-  },
+  } as React.CSSProperties,
   heading: {
-    textAlign: 'center',
+    textAlign: 'center' as const,
     marginBottom: '20px',
     color: '#333',
-  },
+  } as React.CSSProperties,
   form: {
     display: 'flex',
     flexDirection: 'column' as const,
-  },
+  } as React.CSSProperties,
   input: {
     padding: '12px',
     marginBottom: '15px',
     borderRadius: '6px',
     border: '1px solid #ccc',
-  },
+  } as React.CSSProperties,
   button: {
     padding: '12px',
     borderRadius: '6px',
@@ -72,12 +72,12 @@ const styles = {
     color: 'white',
     fontWeight: 'bold',
     cursor: 'pointer',
-  },
+  } as React.CSSProperties,
   message: {
     marginTop: '15px',
     color: '#555',
-    textAlign: 'center',
-  },
+    textAlign: 'center' as const,
+  } as React.CSSProperties,
 };
 
 export default ForgotPassword;
