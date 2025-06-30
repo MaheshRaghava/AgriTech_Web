@@ -12,7 +12,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     try {
       await sendPasswordResetEmail(auth, email);
-      setMessage('Password reset email sent! Please check your inbox.');
+      setMessage('Password reset email sent! Please check your inbox or spam.');
       setTimeout(() => navigate('/login'), 3000);
     } catch (error: any) {
       setMessage(error.message);
